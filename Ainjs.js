@@ -6,21 +6,22 @@ const gc = {
   HR_START: process.hrtime(),
 
   // Paths
-  ASPECT_PATH: __dirname + "/aspect",
-  FIELD_PATH: __dirname + "/field",
-  EXCEPTION_PATH: __dirname + "/exception",
-  FORM_PATH: __dirname + "/form",
-  METADATA_PATH: __dirname + "/metadata",
-  MODEL_PATH: __dirname + "/model",
-  PUBLIC_PATH: __dirname + "/../public",
-  TEMPLATE_PATH: __dirname + "/template",
+  ASPECT_PATH: __dirname + "/application/aspect",
+  FIELD_PATH: __dirname + "/application/field",
+  EXCEPTION_PATH: __dirname + "/application/exception",
+  FORM_PATH: __dirname + "/application/form",
+  LOG_PATH: __dirname + "/log",
+  METADATA_PATH: __dirname + "/application/metadata",
+  MODEL_PATH: __dirname + "/application/model",
+  PUBLIC_PATH: __dirname + "/public",
+  TEMPLATE_PATH: __dirname + "/application/template",
 
-  CSS_VIEW_PATH: __dirname + "/view/css",
-  DIALOG_VIEW_PATH: __dirname + "/view/dialog",
-  EVENT_VIEW_PATH: __dirname + "/view/event",
-  JS_VIEW_PATH: __dirname + "/view/js",
-  PAGE_VIEW_PATH: __dirname + "/view/page",
-  WS_VIEW_PATH: __dirname + "/view/ws",
+  CSS_VIEW_PATH: __dirname + "/application/view/css",
+  DIALOG_VIEW_PATH: __dirname + "/application/view/dialog",
+  EVENT_VIEW_PATH: __dirname + "/application/view/event",
+  JS_VIEW_PATH: __dirname + "/application/view/js",
+  PAGE_VIEW_PATH: __dirname + "/application/view/page",
+  WS_VIEW_PATH: __dirname + "/application/view/ws",
 
   // Extension files
   ASPECT_EXTENSION_FILE: ".aspect.js",
@@ -29,6 +30,7 @@ const gc = {
   EXCEPTION_EXTENSION_FILE: ".exception.js",
   FORM_EXTENSION_FILE: ".form.js",
   JS_EXTENSION_FILE: ".js",
+  LOG_EXTENSION_FILE: ".log.txt",
   METADATA_EXTENSION_FILE: ".metadata.js",
   MODEL_EXTENSION_FILE: ".model.js",
   TEMPLATE_EXTENSION_FILE: ".template.ejs",
@@ -87,9 +89,10 @@ let AbstractException = null,
 
 // Catch uncaught exceptions
 process.on("uncaughtException", err => {
+  // Append log in log file
   const dateTime = new Date().toISOString();
   gc.fs.appendFile(
-    __dirname + "/../log/error-" + dateTime.slice(0, 10).replace(/-/g, "") + ".log.txt",
+    gc.LOG_PATH + "/error-" + dateTime.slice(0, 10).replace(/-/g, "") + gc.LOG_EXTENSION_FILE,
     dateTime.replace(/\..+$/g, "") + " " + err.stack + "\n",
     (err) => {
       // Case uncaughtException: end process

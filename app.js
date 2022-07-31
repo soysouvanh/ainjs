@@ -55,7 +55,7 @@ const server = http.createServer(function (req, res) {
     */
 
     // Load Ainjs class
-    const Ainjs = require(__dirname + "/application/Ainjs.js");
+    const Ainjs = require(__dirname + "/Ainjs.js");
 
     // Run request
     new Ainjs({

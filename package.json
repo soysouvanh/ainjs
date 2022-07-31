@@ -10,7 +10,10 @@
   "keywords": [
     "aspect",
     "nodejs",
-    "framework"
+    "framework",
+    "web",
+    "api",
+    "rest"
   ],
   "author": "Vincent SOYSOUVANH",
   "license": "ISC",

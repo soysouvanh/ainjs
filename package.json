@@ -1,5 +1,5 @@
 {
-  "name": "Ainjs",
+  "name": "ainjs",
   "version": "0.1.0",
   "description": "Aspect-inspired NodeJS framework.",
   "main": "app.js",

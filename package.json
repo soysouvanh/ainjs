@@ -2,7 +2,7 @@
   "name": "ainjs",
   "version": "0.1.0",
   "description": "Aspect-inspired NodeJS framework.",
-  "main": "app.js",
+  "main": "application/Ainjs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"

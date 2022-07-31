@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title><%- metadata.title%></title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="language" content="fr"/>
+	<meta name="category" content="nodeJS,framework,AOP"/>
+	<meta name="copyright" content="<%- SITE_NAME%> by <%- AUTHOR%>"/>
+
+	<%
+	// Set meta data
+	%>
+	<meta name="description" content="<%- metadata.description%>"/>
+	<meta name="keywords" content="<%- metadata.keywords%>"/>
+	<meta name="author" content="<%- metadata.author%>"/>
+	<%//<meta http-equiv="Content-Security-Policy" content="default-src https:"/>%>
+	<link rel="canonical" href="<%- metadata.canonical%>"/>
+
+	<%
+	// Publication timestamp is set only for static contents when cache is generated
+	// This variable can be set from a BO class
+	//if(metadata.lastModified !== undefined) {
+	//	echo '<meta http-equiv="last-modified" content="', gmdate('D, d M Y H:i:s', metadata.lastModified), ' GMT"/>';
+	//}
+	%>
+	
+	<%
+	// Set Twitter Card meta
+	%>
+	<meta name="twitter:url" content="<%- metadata.canonical%>"/>
+	<%if(metadata.twitter !== undefined) {%>
+	<meta name="twitter:card" content="<%- metadata.twitter.card%>"/>
+	<meta name="twitter:site" content="<%- metadata.twitter.site%>"/>
+	<meta name="twitter:title" content="<%- metadata.twitter.title%>"/>
+	<meta name="twitter:description" content="<%- metadata.twitter.description%>"/>
+	<meta name="twitter:creator" content="<%- metadata.twitter.creator%>"/>
+	<meta name="twitter:image:src" content="<%- metadata.twitter.imageSrc%>"/>
+	<%} else {%>
+	<meta name="twitter:title" content="<%- metadata.title%>"/>
+	<meta name="twitter:description" content="<%- metadata.description%>"/>
+	<%}%>
+	
+	<%
+	// Set Open Graph meta
+	%>
+	<meta property="og:url" content="<%- metadata.canonical%>"/>
+	<%if(metadata.openGraph !== undefined) {%>
+	<meta property="og:type" content="<%- metadata.openGraph.type%>"/>
+	<meta property="og:title" content="<%- metadata.openGraph.title%>"/>
+	<meta property="og:description" content="<%- metadata.openGraph.description%>"/>
+	<meta property="og:image" content="<%- metadata.openGraph.image%>"/>
+	<meta property="og:site_name" content="<%- metadata.openGraph.siteName%>"/>
+	<%} else {%>
+	<meta property="og:title" content="<%- metadata.title%>"/>
+	<meta property="og:description" content="<%- metadata.description%>"/>
+	<%}%>
+	
+	<link rel="preload" href="/core.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+	<noscript><link rel="stylesheet" href="/core.css"></noscript>
+	<script src="/core.js" async defer></script>
+	
+	<style>
+	<%= pageCriticalCss%>
+	<%= pageCss%>
+	</style>
+
+	<%
+	// No favicon by default
+	%>
+	<link rel="icon" href="data:;base64,iVBORw0KGgo="/>
+</head>
+<body>
+	<header id="header">
+		<%- pageHeader%>
+	</header>
+	
+	<input type="checkbox" id="menuCheckbox" class="hidden"/>
+	<label for="menuCheckbox" id="menuButton"><span></span></label>
+	<nav id="menu">
+		<%- pageMenu%>
+	</nav>
+
+	<nav id="breadcrumb">
+		<%- pageBreadcrumb%>
+	</nav>
+	
+	<main id="body" class="nl">
+		<%- pageBody %>
+	</main>
+	
+	<footer id="footer">
+		<%- pageFooter%>
+	</footer>
+
+	<script>
+		/*<![CDATA[*/
+		var _={};
+		window.onload=function(){
+			<%= pageJs%>
+		};
+		/*]]>*/
+	</script>
+</body>
+</html>

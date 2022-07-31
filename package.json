@@ -1,0 +1,23 @@
+{
+  "name": "Ainjs",
+  "version": "0.1.0",
+  "description": "Aspect-inspired NodeJS framework.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "aspect",
+    "nodejs",
+    "framework"
+  ],
+  "author": "Vincent SOYSOUVANH",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "node-cache": "^5.1.2",
+    "nodemon": "^2.0.19",
+    "xml2js": "^0.4.23"
+  }
+}

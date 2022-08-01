@@ -8,7 +8,7 @@ const AbstractException = require(__dirname + "/AbstractException.exception.js")
 module.exports = class FormDataException extends AbstractException {
   /**
    * Constructor.
-   * @param string message Message.
+   * @param string|object message (optional) Message.
    */
   constructor(message) {
     super(message === undefined || message === null ? "Precondition Failed" : message, 412);

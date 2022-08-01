@@ -331,7 +331,7 @@ module.exports = class Ainjs {
   /**
    * Throw exception.
    * @param string|AbstractException name Exception name. Exception must exists in /exception folder (ex: FormDataException).
-   * @param string message (optional) Exception message. undefined by default.
+   * @param string|object message (optional) Exception message. undefined by default.
    * @returns void
    * @throws AbstractException
    */
@@ -387,7 +387,7 @@ module.exports = class Ainjs {
             if(field.required.value && value === "") {
               // Case no default value
               if(field.defaultValue === null) {
-                throw new FormDataException(JSON.stringify({fieldId: fieldName, type: "required", message: field.required.message, label: label}));
+                throw new FormDataException({fieldId: fieldName, type: "required", message: field.required.message, label: label});
               }
 
               // Set default value
@@ -399,18 +399,18 @@ module.exports = class Ainjs {
             if(length > 0) {
               // Check miunimum length
               if(field.minLength.value > 0 && length < field.minLength.value) {
-                throw new FormDataException(JSON.stringify({fieldId: fieldName, type: "minLength", message: field.minLength.message, label: label}));
+                throw new FormDataException({fieldId: fieldName, type: "minLength", message: field.minLength.message, label: label});
               }
 
               // Check maximum length
               if(field.maxLength.value > 0 && length > field.maxLength.value) {
-                throw new FormDataException(JSON.stringify({fieldId: fieldName, type: "maxLength", message: field.maxLength.message, label: label}));
+                throw new FormDataException({fieldId: fieldName, type: "maxLength", message: field.maxLength.message, label: label});
               }
 
               // Check format
               if(field.format.value !== null) {
                   if(!field.format.value.test(value)) {
-                    throw new FormDataException(JSON.stringify({fieldId: fieldName, type: "format", message: field.format.message, label: label}));
+                    throw new FormDataException({fieldId: fieldName, type: "format", message: field.format.message, label: label});
                   }
               }
               
@@ -418,7 +418,7 @@ module.exports = class Ainjs {
               if(field.type === "select" && field.values !== null) {
                 // Case select key not found with value string type by default
                 if(field.values[value] === undefined) {
-                  throw new FormDataException(JSON.stringify({fieldId: fieldName, type: "format", message: field.format.message, label: label}));
+                  throw new FormDataException({fieldId: fieldName, type: "format", message: field.format.message, label: label});
                 }
               }
 
@@ -429,7 +429,7 @@ module.exports = class Ainjs {
 
                 // Case min exists
                 if(field.min.value !== null && value < field.min.value) {
-                  throw new FormDataException(JSON.stringify({fieldId: fieldName, type: "min", message: field.min.message, label: label}));
+                  throw new FormDataException({fieldId: fieldName, type: "min", message: field.min.message, label: label});
                 }
 
                 // Case max exists
@@ -455,7 +455,7 @@ module.exports = class Ainjs {
           if(field.required.value) {
             // Case no default value
             if(field.type === 'checkbox' || field.defaultValue === null) {
-              throw new FormDataException(JSON.stringify({fieldId: fieldName, type: "required", message: field.required.message, label: label}));
+              throw new FormDataException({fieldId: fieldName, type: "required", message: field.required.message, label: label});
             }
           }
         }

@@ -2,20 +2,29 @@
   "name": "ainjs",
   "version": "0.1.0",
   "description": "Aspect-inspired NodeJS framework.",
-  "main": "Ainjs.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "aop",
     "aspect",
     "nodejs",
     "framework",
     "web",
+    "page",
+    "event",
+    "dialog",
+    "web service",
+    "ws",
     "api",
-    "rest"
+    "rest",
+    "light",
+    "optimization",
+    "industrialization",
+    "automatization"
   ],
-  "author": "Vincent SOYSOUVANH",
+  "author": "Vincent SOYSOUVANH (https://www.linkedin.com/in/vincentsoysouvanh/)",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.8",
@@ -26,10 +35,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soysouvanh/ainjs.git"
+    "url": "git+https://github.com/soysouvanh/ainjs-framework.git"
   },
   "bugs": {
-    "url": "https://github.com/soysouvanh/ainjs/issues"
+    "url": "https://github.com/soysouvanh/ainjs-framework/issues"
   },
-  "homepage": "https://github.com/soysouvanh/ainjs#readme"
+  "homepage": "https://github.com/soysouvanh/ainjs-framework#readme"
 }

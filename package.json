@@ -1,7 +1,7 @@
 {
   "name": "ainjs",
   "version": "0.1.0",
-  "description": "Aspect-inspired NodeJS framework.",
+  "description": "Ainjs (Aspect-inspired NodeJS) is a fullstack microframework for NodeJS.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,7 @@
     "aspect",
     "nodejs",
     "framework",
+    "microframework",
     "web",
     "page",
     "event",
@@ -19,7 +20,6 @@
     "ws",
     "api",
     "rest",
-    "light",
     "optimization",
     "industrialization",
     "automatization"
